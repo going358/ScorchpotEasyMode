@@ -32,7 +32,8 @@ Note: the in-game panel and its text are **Simplified Chinese only** (hard-coded
 
 ## Install (about a minute)
 
-1. Download this repo (`Code → Download ZIP`) and extract it anywhere.
+1. Download `ScorchpotEasy-v1.6.3.zip` from [Releases](https://github.com/going358/ScorchpotEasyMode/releases/latest)
+   (or `Code → Download ZIP` for the whole repo) and extract it anywhere.
 2. Double-click **`安装-Mod.bat`** (the filename means "install mod").
 3. When you see `[完成] 安装成功` / `[DONE] Installed`, launch the game and press the mouse forward side button.
 

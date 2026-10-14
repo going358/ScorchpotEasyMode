@@ -26,7 +26,8 @@
 
 ## 二、安装（约 1 分钟）
 
-1. 下载本仓库（`Code → Download ZIP`）并解压到任意目录（路径含中文也没问题）。
+1. 下载 [Releases 里的 `ScorchpotEasy-v1.6.3.zip`](https://github.com/going358/ScorchpotEasyMode/releases/latest)
+   （或点 `Code → Download ZIP` 下载整仓库），解压到任意目录（路径含中文也没问题）。
 2. 双击 **`安装-Mod.bat`**。
 3. 出现 `[完成] 安装成功` 后进游戏，按鼠标「前进」侧键即可打开面板。
 
