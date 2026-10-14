@@ -1,0 +1,16 @@
+# ---- 运行时产物 / 本机工具（不入库）----
+/tools/
+/logs/
+/work/
+/borderless/
+/tmp/
+*.part
+
+# 构建与校验报告（每次运行都会重写）
+/patch/last_*_report.txt
+
+# 杂项
+*.bak
+*.log
+Thumbs.db
+desktop.ini
