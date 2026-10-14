@@ -13,7 +13,7 @@ if not "%RC%"=="0" (
   echo [ERROR] Install failed with exit code %RC% - see the message above.
   echo [ERROR] Send the message above back to the mod author.
 ) else (
-  echo [DONE] Installed. In game, press the mouse forward side button.
+  echo [DONE] Installed. In game, press F9 to open the mod panel.
 )
 echo.
 pause

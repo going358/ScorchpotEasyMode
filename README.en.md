@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.md)
 
-A **number-tweaking mod** for the Steam game **Feed the Scorchpot**. Press the **mouse forward side button** in game to open
+A **number-tweaking mod** for the Steam game **Feed the Scorchpot**. Press **F9** in game to open
 an in-game panel and adjust hunger, extra rolls, prices, reroll costs, hanger years, starting gold, dice limit, recipe slots,
 seasons per year and more — 17 settings in total, storable as named profiles (presets: Relaxed / Standard / Bold) that you can
 switch right inside the game.
@@ -32,10 +32,10 @@ Note: the in-game panel and its text are **Simplified Chinese only** (hard-coded
 
 ## Install (about a minute)
 
-1. Download `ScorchpotEasy-v1.6.3.zip` from [Releases](https://github.com/going358/ScorchpotEasyMode/releases/latest)
+1. Download `ScorchpotEasy-v1.6.4.zip` from [Releases](https://github.com/going358/ScorchpotEasyMode/releases/latest)
    (or `Code → Download ZIP` for the whole repo) and extract it anywhere.
 2. Double-click **`安装-Mod.bat`** (the filename means "install mod").
-3. When you see `[完成] 安装成功` / `[DONE] Installed`, launch the game and press the mouse forward side button.
+3. When you see `[完成] 安装成功` / `[DONE] Installed`, launch the game and press **F9**.
 
 Three double-click entry points:
 
@@ -64,7 +64,7 @@ Prefer PowerShell?
 
 | Action | Key |
 | --- | --- |
-| Open / close panel | Mouse forward side button (default; press `B` in the panel to rebind) |
+| Open / close panel | `F9` (default; press `B` in the panel to rebind — mouse side buttons and other function keys also work) |
 | Select row | `↑` / `↓` |
 | Adjust value | `←` / `→` |
 | Scroll the list (17 rows, 12 per screen) | Mouse wheel |
@@ -100,7 +100,7 @@ not switched together with a profile.
 | `shop_tool_reroll` | Shop "reroll tools" button: 0 hidden / 1 free / 2 paid | 0 – 2 | 1 |
 | `shop_dice_reroll` | Shop "reroll dice" button: 0 hidden / 1 free / 2 paid | 0 – 2 | 1 |
 | `panel_enabled` | Enable the in-game panel | 0 / 1 | 1 |
-| `panel_hotkey` | Panel hotkey | mouse_forward / mouse_back / mouse_middle / mouse_right / F1–F12 / letters / SPACE / TAB / ENTER / none | mouse_forward |
+| `panel_hotkey` | Panel hotkey | mouse_forward / mouse_back / mouse_middle / mouse_right / F1–F12 / letters / SPACE / TAB / ENTER / none | F9 |
 
 **When changes apply:** the config file is read on game start (restart after editing). In-run numbers (hunger, reroll costs,
 prices, building limit, slots) apply on a new run or the next reroll; dice / recipe-slot / active-recipe / seasons bonuses are
@@ -125,6 +125,11 @@ apply to newly started runs only.
   Double-click **`更新后重打.bat`** (same as `-Repatch -RefreshBackup`) to re-base the vanilla backup and re-apply the patch.
 
 **"Verify integrity of game files" disabled it too.** Same cause, same fix.
+
+**I installed an older version and the config still says the mouse forward side button — how do I switch to F9?**
+(New installs since v1.6.4 default to F9.) Open the panel in game and press `B`, then press `F9`; or run
+`.\ScorchpotEasy.ps1 -Set panel_hotkey=F9` (restart the game afterwards). Existing configs are **never** rewritten
+automatically — a hotkey you changed yourself stays exactly as it is.
 
 **The tool download failed.** The script prints the official URL; download `UTMT_CLI_v0.9.2.0-Windows.zip` manually, drop it in
 `tools\_cache\`, and run again — it verifies SHA256 before extracting.

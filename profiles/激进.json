@@ -20,5 +20,5 @@
   "shop_tool_reroll": 1,
   "shop_dice_reroll": 1,
   "panel_enabled": 1,
-  "panel_hotkey": "mouse_forward"
+  "panel_hotkey": "F9"
 }

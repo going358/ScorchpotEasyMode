@@ -2,7 +2,7 @@
 
 [English](README.en.md) | **简体中文**
 
-给 Steam 游戏 **《喂龙高手》（Feed the Scorchpot）** 做的**数值可调 Mod**：进游戏按**鼠标侧键「前进」**打开中文控制面板，
+给 Steam 游戏 **《喂龙高手》（Feed the Scorchpot）** 做的**数值可调 Mod**：进游戏按 **F9** 打开中文控制面板，
 随时调整饥饿、掷骰次数、价格、刷新费用、饿怒、开局金币、骰子上限、食谱栏上限、每年季度等 17 项数值，
 可以存成多套命名配置档（预置「温和 / 标准 / 激进」）并在游戏面板里直接切换。
 
@@ -26,10 +26,10 @@
 
 ## 二、安装（约 1 分钟）
 
-1. 下载 [Releases 里的 `ScorchpotEasy-v1.6.3.zip`](https://github.com/going358/ScorchpotEasyMode/releases/latest)
+1. 下载 [Releases 里的 `ScorchpotEasy-v1.6.4.zip`](https://github.com/going358/ScorchpotEasyMode/releases/latest)
    （或点 `Code → Download ZIP` 下载整仓库），解压到任意目录（路径含中文也没问题）。
 2. 双击 **`安装-Mod.bat`**。
-3. 出现 `[完成] 安装成功` 后进游戏，按鼠标「前进」侧键即可打开面板。
+3. 出现 `[完成] 安装成功` 后进游戏，按 **F9** 即可打开面板。
 
 仓库里一共三个双击入口：
 
@@ -57,7 +57,7 @@
 
 | 操作 | 按键 |
 | --- | --- |
-| 打开 / 关闭面板 | 鼠标侧键「前进」（默认；面板内按 `B` 可改键） |
+| 打开 / 关闭面板 | `F9`（默认；面板内按 `B` 可改键，鼠标侧键 / 其它功能键也都支持） |
 | 上下选择项目 | `↑` / `↓` |
 | 左右调整数值 | `←` / `→` |
 | 翻看整屏（共 17 行，一屏 12 行） | 鼠标滚轮 |
@@ -93,7 +93,7 @@
 | `shop_tool_reroll` | 商店「刷新工具」按钮：0 关闭 / 1 免费 / 2 收费 | 0 – 2 | 1 |
 | `shop_dice_reroll` | 商店「刷新骰子」按钮：0 关闭 / 1 免费 / 2 收费 | 0 – 2 | 1 |
 | `panel_enabled` | 是否启用控制面板 | 0 / 1 | 1 |
-| `panel_hotkey` | 面板快捷键 | mouse_forward / mouse_back / mouse_middle / mouse_right / F1–F12 / 字母 / SPACE / TAB / ENTER / none | mouse_forward |
+| `panel_hotkey` | 面板快捷键 | mouse_forward / mouse_back / mouse_middle / mouse_right / F1–F12 / 字母 / SPACE / TAB / ENTER / none | F9 |
 
 **生效时机**：改配置文件后需**重启游戏**才重新读取。局内数值（饥饿、刷新、价格、建筑上限、货位）在新开局或下一次刷新时生效；
 骰子上限、食谱栏上限、可激活食谱、每年季度按建筑数每 30 帧重算，约 0.5 秒生效；
@@ -132,6 +132,10 @@
   这时双击 **`更新后重打.bat`**（等价于 `-Repatch -RefreshBackup`）：它会把原版备份刷新成新版本、再重新打补丁。
 
 **Steam「验证游戏文件完整性」之后失效？** 同样会把 `data.win` 还原成原版，`-Repatch` 即可。
+
+**我装的是旧版，配置里还是鼠标前进侧键，怎么换成 F9？**（v1.6.4 起新安装的默认键就是 F9）
+游戏内打开面板后按 `B`，再按 `F9` 即可重设；或者运行 `.\ScorchpotEasy.ps1 -Set panel_hotkey=F9`（重启游戏生效）。
+旧配置**不会**被自动改写：你手动改过的键位始终原样保留。
 
 **下载 UndertaleModTool 失败？** 脚本会打印官方下载地址；手动下载 `UTMT_CLI_v0.9.2.0-Windows.zip`，
 放到工具目录的 `tools\_cache\` 下再重跑，脚本会校验 SHA256 后解压。

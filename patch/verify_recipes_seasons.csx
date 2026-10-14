@@ -64,7 +64,18 @@ System.Action<string, string, string> Need = (text, needle, label) =>
 };
 
 // ---- 版本号 ----
-Need(create, "global.sp_version = \"1.6.3\";", "Create");
+Need(create, "global.sp_version = \"1.6.4\";", "Create");
+
+// ---- 默认面板按键（v1.6.4：默认 F9 / 键码 120）----
+Need(create, "global.sp_panel_hotkey = \"F9\";", "Create");
+Need(create, "global.sp_hotkey_code = 120;", "Create");
+if (create.Contains("global.sp_panel_hotkey = \"mouse_forward\";"))
+    errors.Add("Create 里默认面板按键仍是 mouse_forward（期望 F9）");
+// 注意：不要断言「不含 global.sp_hotkey_code = 5;」——Create 里 case "mouse_forward" 分支
+// 合法地写着这个赋值（鼠标侧键仍是可选键位），只断言默认值那一行即可。
+if (CountOf(create, "global.sp_hotkey_code = 120;") < 2)
+    errors.Add("Create 里 global.sp_hotkey_code = 120; 出现 "
+        + CountOf(create, "global.sp_hotkey_code = 120;") + " 次（期望 2 次：默认值 + case \"F9\" 分支）");
 
 // ---- Create：三处初始值 ----
 Need(create, "global.recipe_limit = 3 + global.sp_recipe_store_bonus;", "Create");
@@ -216,6 +227,8 @@ System.Action<string, string> Echo = (text, key) =>
 Echo(create, "global.recipe_limit");
 Echo(create, "global.activated_recipes_limit");
 Echo(create, "global.max_seasons");
+Echo(create, "global.sp_panel_hotkey");
+Echo(create, "global.sp_hotkey_code");
 Echo(step1, "global.recipe_limit =");
 Echo(step1, "global.activated_recipes_limit =");
 Echo(step1, "global.max_seasons =");
@@ -223,6 +236,7 @@ Echo(step1, "global.max_seasons =");
 StringBuilder sb = new StringBuilder();
 sb.Append("补丁校验：通过（食谱栏上限 recipe_limit / 可激活食谱 activated_recipes_limit / 每年季度 max_seasons 均已叠加加成）\n");
 sb.Append("检查项：Create 3 处 + Step 12 处档位赋值 + 面板 17 行与滚轮（v1.6.3：滚轮只移动视窗 / 高亮贴边 / 选中行跟随仅键盘分支）+ 食谱卡排版表（激活 5 张 / 食谱栏 7 张等距）\n");
+sb.Append("默认面板按键：F9（键码 120）——已在 Create 段断言\n");
 sb.Append("回读语句：\n").Append(string.Join("\n", lines)).Append('\n');
 File.WriteAllText(reportPath, sb.ToString(), new UTF8Encoding(false));
 ScriptMessage(sb.ToString());

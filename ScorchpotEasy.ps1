@@ -16,6 +16,8 @@
 #        档名按 patch/font-glyphs-hans.txt 白名单校验，保证游戏面板能画出档名。
 #  v1.6.3（公开版）：游戏目录改为自动探测（Steam 注册表 + libraryfolders.vdf），不再硬编码
 #        安装路径；UndertaleModTool CLI 缺失时自动从官方 Release 下载并校验 SHA256。
+#  v1.6.4：默认面板按键由「鼠标前进侧键」改为 F9（panel_hotkey=F9）；已装旧版的配置不会被
+#        自动改写，想换键可在游戏内面板按 B 重设，或用 -Set panel_hotkey=F9 手动指定。
 # ============================================================
 [CmdletBinding()]
 param(
@@ -334,7 +336,7 @@ function New-ProfileObject([string]$Name, [string]$Desc) {
         shop_tool_reroll = 1
         shop_dice_reroll = 1
         panel_enabled = 1
-        panel_hotkey = 'mouse_forward'
+        panel_hotkey = 'F9'
     }
 }
 
@@ -489,7 +491,7 @@ function Install-Mod {
     }
     $idx = Write-ProfilesIndex
     Write-Host "补丁安装完成。`n  原版备份 SHA256: $backupHash`n  补丁版 SHA256 : $installed`n  配置文件       : $cfg（$cfgState）`n  配置档索引     : $idx" -ForegroundColor Green
-    Write-Host '启动游戏后，按「鼠标前进侧键」可打开 Mod 控制面板（面板内按 B 改键；点档名或 - + 或 Q/E 切配置档）。' -ForegroundColor Yellow
+    Write-Host '启动游戏后，按 F9 可打开 Mod 控制面板（面板内按 B 改键；点档名或 - + 或 Q/E 切配置档）。' -ForegroundColor Yellow
 }
 
 switch ($true) {

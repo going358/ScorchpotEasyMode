@@ -1,5 +1,5 @@
 // ===== ScorchpotEasy Mod v1.1：配置读取（由 apply_mod.csx 自动插入 oController Create 事件顶部）=====
-global.sp_version = "1.6.3";
+global.sp_version = "1.6.4";
 global.sp_cfg_file = "ScorchpotEasy.cfg";
 global.sp_profile = "vanilla";
 global.sp_profile_ascii = "vanilla";
@@ -22,8 +22,9 @@ global.sp_seasons_bonus = 0;
 global.sp_shop_tool_reroll = 1;
 global.sp_shop_dice_reroll = 1;
 global.sp_panel_enabled = 1;
-global.sp_panel_hotkey = "mouse_forward";
-global.sp_hotkey_code = 5;
+// v1.6.4：默认面板按键改为 F9（120）；cfg 里没写 panel_hotkey 时用这个兜底
+global.sp_panel_hotkey = "F9";
+global.sp_hotkey_code = 120;
 global.sp_panel_open = false;
 global.sp_panel_sel = 0;
 global.sp_panel_scroll = 0;
